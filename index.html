@@ -9,22 +9,34 @@
   <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23204a87'/><text x='50' y='58' font-size='44' text-anchor='middle' fill='white' font-family='Arial,Helvetica,sans-serif'>G</text></svg>" type="image/svg+xml">
   <style>
     /* ---------- Design Tokens ---------- */
+    /*
+      Las variables de diseño a continuación han sido simplificadas para emular una versión
+      anterior del recurso. Se eliminan los degradados oscuros, colores vibrantes y sombras
+      pronunciadas. En su lugar se utilizan colores neutros, bordes cuadrados y sin sombras
+      para obtener una apariencia más básica. El contenido y la estructura permanecen
+      exactamente iguales a la versión final.
+    */
     :root{
-      --bg: #0b1020;
-      --bg-2: #0f172a;
-      --card: #0f172a;
-      --elev: #121b36;
-      --txt: #e6e9f2;
-      --muted: #97a5c0;
-      --primary: #7aa2ff;
-      --accent: #22d3ee;
-      --accent-2:#a78bfa;
-      --ok:#22c55e;
-      --warn:#f59e0b;
-      --danger:#ef4444;
-      --border: #1f2a44;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 16px;
+      /* Colores de fondo: blanco y gris claro */
+      --bg: #ffffff;
+      --bg-2: #f2f2f2;
+      --card: #f7f7f7;
+      --elev: #ffffff;
+      /* Colores de texto: gris oscuro y gris medio */
+      --txt: #222222;
+      --muted: #555555;
+      /* Paleta de acentos más sobria */
+      --primary: #0066cc;
+      --accent: #0066cc;
+      --accent-2:#009999;
+      --ok:#228b22;
+      --warn:#d98c00;
+      --danger:#cc3300;
+      /* Bordes y sombras mínimos */
+      --border: #cccccc;
+      --shadow: none;
+      /* Esquinas menos redondeadas */
+      --radius: 4px;
     }
     [data-theme="light"]{
       --bg: #f7f7fb;
@@ -43,12 +55,11 @@
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      /* Tipografía básica de tipo serif para dar apariencia antigua */
+      font-family: "Times New Roman", Times, serif;
       color:var(--txt);
-      background:
-        radial-gradient(1200px 800px at 10% -10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(1000px 700px at 90% 10%, rgba(34,211,238,.25), transparent 60%),
-        var(--bg);
+      /* Fondo simple sin degradados ni elementos gráficos llamativos */
+      background: var(--bg);
       line-height:1.65;
       -webkit-font-smoothing:antialiased;
       text-rendering: optimizeLegibility;
@@ -58,8 +69,9 @@
     a:hover{text-decoration:underline}
     .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
     .glass{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      backdrop-filter: blur(8px);
+      /* Caja sencilla con fondo liso y bordes definidos */
+      background: var(--card);
+      /* Sin desenfoque */
       border:1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -68,8 +80,8 @@
     /* ---------- Header / Nav ---------- */
     .topbar{
       position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(2,6,23,.85), rgba(2,6,23,.60));
+      /* Barra superior sencilla sin desenfoque ni degradado */
+      background: var(--card);
       border-bottom:1px solid var(--border);
     }
     .topbar .row{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0}
@@ -99,7 +111,10 @@
     .subtitle{color:var(--muted); margin-top:0}
     .byline{color:var(--muted); font-size:.95rem}
     .art{
-      padding:10px; border-radius: var(--radius); background:var(--elev); border:1px solid var(--border);
+      padding:10px; border-radius: var(--radius);
+      /* Fondo sólido y sin sombra en el contenedor de ilustración */
+      background:var(--card);
+      border:1px solid var(--border);
       box-shadow: var(--shadow);
     }
     .art svg{width:100%; height:auto; display:block}
@@ -112,8 +127,13 @@
     .grid-auto{display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:18px}
 
     /* Reveal animation */
-    .reveal{opacity:0; transform: translateY(16px); transition: all .6s ease}
-    .reveal.in-view{opacity:1; transform: translateY(0)}
+    /*
+      Las clases reveal e in-view se simplifican para que los elementos sean visibles
+      inmediatamente sin animaciones de entrada. Esto elimina el efecto de deslizamiento
+      y retraso al mostrar los contenidos.
+    */
+    .reveal{opacity:1; transform:none; transition:none}
+    .reveal.in-view{opacity:1; transform:none}
 
     /* ---------- Comparison Tabs ---------- */
     .tabs{display:flex; gap:10px; margin-bottom:12px; flex-wrap:wrap}
